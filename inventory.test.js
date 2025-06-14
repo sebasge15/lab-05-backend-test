@@ -161,35 +161,4 @@ describe("Inventory System", () => {
       // TODO: Verificar que el valor total es cero
     });
   });
-
-  describe("Additional Methods", () => {
-    test("should get product by ID", () => {
-      // PREPARAR
-      // TODO: Crear y agregar un producto
-      // EJECUTAR
-      // TODO: Buscar el producto por su ID
-      // VALIDAR
-      // TODO: Verificar que se retorna el producto correcto
-    });
-
-    test("should get low stock products", () => {
-      // PREPARAR
-      // TODO: Crear y agregar varios productos con diferentes niveles de stock
-      // EJECUTAR
-      // TODO: Obtener productos con stock bajo
-      // VALIDAR
-      // TODO: Verificar que se retornan solo los productos con stock bajo
-      // TODO: Verificar que todos los productos retornados tienen stock menor al umbral
-    });
-
-    test("should remove product", () => {
-      // PREPARAR
-      // TODO: Crear y agregar un producto
-      // EJECUTAR
-      // TODO: Eliminar el producto
-      // VALIDAR
-      // TODO: Verificar que el producto se eliminó correctamente
-      // TODO: Verificar que no se puede encontrar el producto eliminado
-    });
-  });
 });
