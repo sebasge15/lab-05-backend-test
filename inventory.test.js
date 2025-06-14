@@ -4,18 +4,50 @@ describe("Inventory System", () => {
   let inventory;
 
   beforeEach(() => {
-    // TODO: Inicializar el inventario antes de cada prueba
+    inventory = new Inventory();
+    const mockDate = new Date("2023-01-01T00:00:00.000Z");
+    jest.spyOn(global, "Date").mockImplementation(() => mockDate);
   });
 
   describe("Add Product", () => {
     test("should add a new product successfully", () => {
       // PREPARAR
       // TODO: Crear un objeto producto con todos los campos requeridos
+      const product = {
+        id: 1,
+        name: "Producto 1",
+        price: 100,
+        stock: 10,
+        category: "Electrónica",
+      };
       // EJECUTAR
       // TODO: Llamar al método addProduct
+      const response = inventory.addProduct(product);
       // VALIDAR
+      expect(response).toEqual({
+        id: 1,
+        name: "Producto 1",
+        price: 100,
+        category: "Electrónica",
+        stock: 10,
+        createdAt: new Date("2023-01-01T00:00:00.000Z"),
+      });
+
       // TODO: Verificar que el producto se agregó correctamente
+      expect(inventory.products).toEqual([
+        {
+          category: "Electrónica",
+          createdAt: new Date("2023-01-01T00:00:00.000Z"),
+          id: 1,
+          name: "Producto 1",
+          price: 100,
+          stock: 10,
+        },
+      ]);
+
       // TODO: Verificar que se agregó la fecha de creación
+
+      expect(response.createdAt).toEqual(new Date("2023-01-01T00:00:00.000Z"));
     });
 
     test("should not allow duplicate product IDs", () => {

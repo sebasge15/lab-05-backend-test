@@ -62,6 +62,7 @@ describe("Database CRUD Operations", () => {
       db.pool.query.mockRejectedValueOnce(new Error("Error de duplicación"));
 
       // EJECUTAR y VALIDAR
+
       await expect(db.createUser(userData)).rejects.toThrow(
         "Error al crear usuario: Error de duplicación"
       );
