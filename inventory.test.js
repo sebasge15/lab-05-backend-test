@@ -87,6 +87,21 @@ describe("Inventory System", () => {
         "Ya existe un producto con este ID"
       );
     });
+
+    test("should throw error if price is less than 0", () => {
+      // Prepare
+      const payload = {
+        id: 1,
+        name: "Producto 1",
+        price: 0,
+        category: "Electrónica",
+      };
+
+      // Execute
+      expect(() => inventory.addProduct(payload)).toThrow(
+        "El precio debe ser mayor que cero"
+      );
+    });
   });
 
   describe("Update Stock", () => {

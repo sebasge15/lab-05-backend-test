@@ -5,7 +5,7 @@ class Inventory {
 
   addProduct(product) {
     // Validar que el producto tenga los campos requeridos
-    if (!product.id || !product.name || !product.price || !product.category) {
+    if (!product.id || !product.name || !product.category) {
       throw new Error("El producto debe tener id, nombre, precio y categoría");
     }
 
