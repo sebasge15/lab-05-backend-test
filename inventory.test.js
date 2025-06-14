@@ -50,12 +50,18 @@ describe("Inventory System", () => {
       expect(response.createdAt).toEqual(new Date("2023-01-01T00:00:00.000Z"));
     });
 
-    test("should not allow duplicate product IDs", () => {
-      // PREPARAR
-      // TODO: Crear y agregar un producto
-      // TODO: Crear otro producto con el mismo ID
-      // EJECUTAR y VALIDAR
-      // TODO: Verificar que se lanza el error correcto al intentar agregar un producto duplicado
+    test("should throw error if payload does not have required fields", () => {
+      // Prepare
+      const payload = {
+        id: 5,
+        price: 100,
+        category: "Electrónica",
+      };
+
+      // Execute
+      expect(() => inventory.addProduct(payload)).toThrow(
+        "El producto debe tener id, nombre, precio y categoría"
+      );
     });
 
     test("should validate required fields", () => {
