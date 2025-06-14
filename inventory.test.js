@@ -64,11 +64,28 @@ describe("Inventory System", () => {
       );
     });
 
-    test("should validate required fields", () => {
+    test("should throw error if product already exists", () => {
       // PREPARAR
-      // TODO: Crear un objeto producto con campos faltantes
-      // EJECUTAR y VALIDAR
-      // TODO: Verificar que se lanza el error correcto al intentar agregar un producto inválido
+      const payload = {
+        id: 1,
+        name: "Producto 1",
+        price: 100,
+        category: "Electrónica",
+      };
+
+      const alreadyExistingProduct = {
+        id: 1,
+        name: "Producto 2",
+        price: 300,
+        category: "Hogar",
+      };
+      // Execute
+      inventory.addProduct(alreadyExistingProduct);
+
+      // Validate
+      expect(() => inventory.addProduct(payload)).toThrow(
+        "Ya existe un producto con este ID"
+      );
     });
   });
 
